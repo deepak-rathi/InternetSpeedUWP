@@ -1,0 +1,43 @@
+﻿<Page
+    x:Class="InternetSpeedUWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:InternetSpeedUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converter ="using:InternetSpeedUWP.Converter"
+    mc:Ignorable="d">
+
+    <Page.DataContext>
+        <local:MainPageViewModel />
+    </Page.DataContext>
+    <Page.Resources>
+        <converter:InternetSpeedToColorConverter x:Name="InternetSpeedToColorConverter" />
+        <converter:BooleanToVisibilityConverter x:Name="BooleanToVisibilityConverter" />
+    </Page.Resources>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0"
+              Background="{Binding InternetSpeedDetected, Converter={StaticResource InternetSpeedToColorConverter}}"
+              Visibility="{Binding InternetConnectivityMessageVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <TextBlock Text="{Binding InternetConnectivityText}" 
+                       Foreground="White"
+                       FontWeight="SemiLight"
+                       FontSize="21"
+                       TextAlignment="Center"
+                       HorizontalAlignment="Stretch"
+                       VerticalAlignment="Center"
+                       Padding="10"/>
+        </Grid>
+        <TextBlock Grid.Row="1"
+                   Text="Try to disconnect and reconnect internet connection to see colored status bar or move to a weak connection. Note: 2G mobile data connection is treated as weak internet connection by this app." 
+                   TextAlignment="Center"
+                   TextWrapping="Wrap"
+                   Padding="20"
+                   VerticalAlignment="Stretch"
+                   HorizontalAlignment="Stretch"/>
+    </Grid>
+</Page>

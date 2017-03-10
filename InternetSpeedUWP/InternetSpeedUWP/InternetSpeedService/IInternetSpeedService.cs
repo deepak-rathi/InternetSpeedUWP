@@ -6,9 +6,9 @@ namespace InternetSpeedUWP.InternetSpeedService
     interface IInternetSpeedService
     {
         Task<bool> IsInternetAvailable();
-        Task<InternetSpeedEnum.InternetSpeed> CheckInternetSpeedSignalAsync();
-        Task<InternetSpeedEnum.InternetSpeed> CheckInternetSpeedSocketAsync();
-        void RegisterActionAvailabiltyChanged(Action<bool> availabiltyChanged);
-        void RegisterActionNetworkStrengthChanged(Action<InternetSpeedEnum.InternetSpeed> networkStrengthChanged);
+        Task<InternetSpeedEnum.InternetSpeed> CheckInternetSpeedBySignalAsync();
+        Task<InternetSpeedEnum.InternetSpeed> CheckInternetSpeedBySocketAsync();
+        void RegisterAvailabiltyChanged(Action<bool> availabiltyChanged);
+        void RegisterNetworkStrengthChanged(Action<InternetSpeedEnum.InternetSpeed> networkStrengthChanged);
     }
 }

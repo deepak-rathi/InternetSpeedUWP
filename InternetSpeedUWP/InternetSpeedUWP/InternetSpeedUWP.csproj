@@ -97,6 +97,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Util\InternetSpeedColorUtil.cs" />
     <Compile Include="Converter\InternetSpeedToColorConverter.cs" />
     <Compile Include="InternetSpeedService\IInternetSpeedService.cs" />
     <Compile Include="InternetSpeedService\InternetSpeedEnum.cs" />

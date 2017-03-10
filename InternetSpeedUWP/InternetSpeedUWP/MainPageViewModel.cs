@@ -37,7 +37,7 @@ namespace InternetSpeedUWP
         /// </summary>
         public async void RegisterNetworkHandler()
         {
-            internetSpeedService.RegisterActionNetworkStrengthChanged(AvailabilityChanged);
+            internetSpeedService.RegisterNetworkStrengthChanged(AvailabilityChanged);
             //Initially if internet is not found show red banner
             if (!await internetSpeedService.IsInternetAvailable())
             {
